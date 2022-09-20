@@ -30,6 +30,7 @@ async function getRepos(username) {
 function createUserCard(user) {
 	const userID = user.name || user.login
 	const userBio = user.bio ? `<p>${user.bio}</p>` : ''
+	const userName = user.login ? `<p>@${user.login}</p>` : ''
 	const userCompany = user.company ? `<p>${user.company}</p>` : ''
 	const userLocation = user.location ? `<p>${user.location}</p>` : ''
 	const cardHTML = `
@@ -39,6 +40,7 @@ function createUserCard(user) {
     </div>
     <div class="user-info">
       <h1>${userID}</h1>
+	  <a href="https://github.com/${user.login}">${userName}</a>
       ${userBio}
 	  ${userCompany}
 	  ${userLocation}
